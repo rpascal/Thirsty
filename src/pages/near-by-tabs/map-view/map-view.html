@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="">
+    <button left ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="query" (ionInput)="searchPlace()"></ion-searchbar>
+
+
+     <ion-buttons end>
+      <button ion-button icon-only (click)="openSettings($event)">
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons> 
+
+  </ion-navbar>
+
+
+
+
+  <ion-list>
+    <!--(touchstart)="selectPlace(place)"  -->
+    <ion-item *ngFor="let place of places" (click)="selectPlace(place)">{{place.description}}</ion-item>
+  </ion-list>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div #pleaseConnect id="please-connect">
+    <p>Please connect to the Internet...</p>
+  </div>
+
+  <div #map id="map">
+    <ion-spinner></ion-spinner>
+  </div>
+
+</ion-content>
