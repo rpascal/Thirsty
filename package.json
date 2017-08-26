@@ -10,9 +10,14 @@
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
         "ionic:serve": "ionic-app-scripts serve",
-        "cordova:build:dev": "cross-env NODE_ENV=dev ionic cordova build ios",
-        "cordova:build:uat": "cross-env NODE_ENV=uat ionic cordova build ios",
-        "cordova:build:prod": "cross-env NODE_ENV=prod ionic cordova build ios --prod",
+        "cordova:build:android": "cross-env ionic cordova build android",
+        "cordova:build:android:dev": "cross-env NODE_ENV=dev ionic cordova build android",
+        "cordova:build:android:uat": "cross-env NODE_ENV=uat ionic cordova build android",
+        "cordova:build:android:prod": "cross-env NODE_ENV=prod ionic cordova build android --prod",
+        "cordova:build:ios": "cross-env ionic cordova build ios",        
+        "cordova:build:ios:dev": "cross-env NODE_ENV=dev ionic cordova build ios",
+        "cordova:build:ios:uat": "cross-env NODE_ENV=uat ionic cordova build ios",
+        "cordova:build:ios:prod": "cross-env NODE_ENV=prod ionic cordova build ios --prod",
         "ionic:serve:dev": "cross-env NODE_ENV=dev ionic serve",
         "ionic:serve:uat": "cross-env NODE_ENV=uat ionic serve",
         "ionic:serve:prod": "cross-env NODE_ENV=prod ionic serve"
@@ -34,6 +39,7 @@
         "@ionic/storage": "2.0.1",
         "angularfire2": "^4.0.0-rc.2",
         "cordova-android": "^6.2.3",
+        "cordova-ios": "^4.4.0",
         "cordova-plugin-compat": "^1.0.0",
         "cordova-plugin-console": "^1.0.5",
         "cordova-plugin-device": "^1.1.4",
@@ -48,6 +54,7 @@
         "ionic-angular": "3.6.0",
         "ionic-plugin-keyboard": "^2.2.1",
         "ionicons": "3.0.0",
+        "promise-polyfill": "^6.0.2",
         "rxjs": "5.4.0",
         "sw-toolbox": "3.6.0",
         "webpack-merge": "^4.1.0",
@@ -74,7 +81,8 @@
             "ionic-plugin-keyboard": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios"
         ]
     }
 }

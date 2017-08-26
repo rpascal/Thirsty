@@ -19,13 +19,17 @@ ionic lab
 1. Enviornment Variables 
 I added the ability to have different setting depending on if we want to build for local, dev, prod. The setting exist in src/environments should be easy to tell which files are for which environments. To build for the different enviornments use these commands
  ```node
-npm run cordova:build:dev
-npm run cordova:build:prod
-//runs in browser with default settings
+ //builds for android
+npm run cordova:build:android 
+npm run cordova:build:android:dev
+npm run cordova:build:android:prod
+//builds for ios
+npm run cordova:build:ios
+npm run cordova:build:ios:dev
+npm run cordova:build:ios:prod
+//Run in browser
 ionic serve
-//runs in browser with dev settings
 npm run ionic:serve:dev
-//runs in browser with prod settings
 npm run ionic:serve:prod
 ```
 
@@ -38,5 +42,10 @@ npm install -g cordova ionic
 3. Install visual studio code (or some other editor) (https://code.visualstudio.com/download)
 4. For android use make sure to install Android studio (https://developer.android.com/studio/index.html) make sure it exists on your main drive because you will need command line functions to work properly. (at least in my experience i needed to do that)
 
+##Potential Errors
+1. If when you build you get an error about promise-polyfill run the following command
+```node
+npm install promise-polyfill --save-exact
+```
 
 [Ionic Docs](http://ionicframework.com/docs/)
