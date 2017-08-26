@@ -5,12 +5,12 @@ This reposity is for the Thirsty App for consumers
 1. Clone to your workspace.
 2. Open in visual studio code or whatever terminal your using
 3. Run these commands in the following order in the terminal
-```bash
+```node
 npm install
 ionic cordova prepare
 ```
 4. Run one of these commands to test locally in your browser. Some plugins may not work because of beening run in browser not on actual device.
-```bash
+```node
 ionic serve
 ionic lab
 ```
@@ -18,7 +18,7 @@ ionic lab
 ## Basic Usage
 1. Enviornment Variables 
 I added the ability to have different setting depending on if we want to build for local, dev, prod. The setting exist in src/environments should be easy to tell which files are for which environments. To build for the different enviornments use these commands
- ```bash
+ ```node
 npm run cordova:build:dev
 npm run cordova:build:prod
 //runs in browser with default settings
@@ -32,7 +32,7 @@ npm run ionic:serve:prod
 ## Prerequisites
 1. Make sure node.js is installed (https://nodejs.org/en/)
 2. Once nodejs is installed run the following command in cmd
-```bash
+```node
 npm install -g cordova ionic
 ```
 3. Install visual studio code (or some other editor) (https://code.visualstudio.com/download)
