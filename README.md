@@ -1,26 +1,23 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## Thirsty for consumers
+This reposity is for the Thirsty App for consumers
 
-## How to use this template
-
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
-
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
+## Getting Started
+1. Clone to your workspace.
+2. Open in visual studio code or whatever terminal your using
+3. Run these commands in the following order in the terminal
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+npm install
+ionic cordova prepare
 ```
 
-Then, to run it, cd into `myBlank` and run:
-
+## Prerequisites
+1. Make sure node.js is installed (https://nodejs.org/en/)
+2. Once nodejs is installed run the following command in cmd
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+npm install -g cordova ionic
 ```
+3. Install visual studio code (or some other editor) (https://code.visualstudio.com/download)
+4. For android use make sure to install Android studio (https://developer.android.com/studio/index.html) make sure it exists on your main drive because you will need command line functions to work properly. (at least in my experience i needed to do that)
 
-Substitute ios for android if not on a Mac.
 
+[Ionic Docs](http://ionicframework.com/docs/)
