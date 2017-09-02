@@ -12,6 +12,7 @@ export class CurrentLocationProvider {
 
   constructor(public geolocation: Geolocation) {
     this.geolocation.watchPosition().subscribe(data => {
+     console.log(data)
       this.currentLocation = { lat: data.coords.latitude, lng: data.coords.longitude };
     });
   }

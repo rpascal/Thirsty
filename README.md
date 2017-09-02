@@ -23,10 +23,18 @@ I added the ability to have different setting depending on if we want to build f
 npm run cordova:build:android 
 npm run cordova:build:android:dev
 npm run cordova:build:android:prod
+ //run on android
+npm run cordova:run:android 
+npm run cordova:run:android:dev
+npm run cordova:run:android:prod
 //builds for ios
 npm run cordova:build:ios
 npm run cordova:build:ios:dev
 npm run cordova:build:ios:prod
+//builds run ios
+npm run cordova:run:ios
+npm run cordova:run:ios:dev
+npm run cordova:run:ios:prod
 //Run in browser
 ionic serve
 npm run ionic:serve:dev

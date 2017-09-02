@@ -1,6 +1,6 @@
 {
-  "name": "Thirsty",
-  "app_id": "",
+  "name": "thirsty",
+  "app_id": "96741357",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
