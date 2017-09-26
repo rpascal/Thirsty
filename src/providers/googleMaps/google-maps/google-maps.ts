@@ -106,9 +106,9 @@ export class GoogleMapsProvider {
 
 
         this.disableMap();
-
+        this.toastMes("is online!" + this.connectivityService.isOnline())
         if (this.connectivityService.isOnline()) {
-
+          this.toastMes("pre weird")
           window['mapInit'] = () => {
 
             this.toastMes("map init callback")
