@@ -123,7 +123,8 @@ export class GoogleMapsProvider {
 
 
           }
-
+          this.toastMes("pre script make")
+          
           let script = document.createElement("script");
           script.id = "googleMaps";
 
@@ -225,6 +226,8 @@ export class GoogleMapsProvider {
 
 
   disableMap(): void {
+    this.toastMes("disable map" + this.pleaseConnect)
+    
     if (this.pleaseConnect) {
       this.pleaseConnect.style.display = "block";
     }
