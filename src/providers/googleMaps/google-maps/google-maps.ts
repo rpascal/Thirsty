@@ -2,7 +2,7 @@ import { ENVIRONMENT } from './../../../environments/environment.default';
 import { latLng } from './../../../models/latLng';
 import { Subscription } from 'rxjs/Subscription';
 import { Injectable, NgZone } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, ToastController, ToastOptions } from 'ionic-angular';
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/combineLatest';
@@ -28,8 +28,8 @@ export class GoogleMapsProvider {
   private mapLoaded: any;
   private mapLoadedObserver: any;
   private location: BehaviorSubject<latLng> = new BehaviorSubject(this.currentLocationDataProvider.getDefault());
-  
-  public defaultRadius = 200;  
+
+  public defaultRadius = 200;
   private radius: BehaviorSubject<number> = new BehaviorSubject(this.defaultRadius);
 
   private manualLocationChange = false;
@@ -39,7 +39,8 @@ export class GoogleMapsProvider {
     public businessDataProvider: BusinessesDataProvider,
     public zone: NgZone,
     public currentLocationDataProvider: CurrentLocationProvider,
-    public math: MathOperationsProvider) {
+    public math: MathOperationsProvider,
+    public toast: ToastController) {
 
     this.currentLocationDataProvider.getCurrentocation().then(data => {
       this.location.next(data)
@@ -50,7 +51,14 @@ export class GoogleMapsProvider {
     })
   }
 
+  toastMes(message) {
+    this.toast.create({ message: message, duration: 1000 }).present();
+  }
+
   init(mapElement: any, pleaseConnect: any, navCtrl): Promise<any> {
+
+    this.toastMes("inti")
+
     this.mapElement = mapElement;
     this.pleaseConnect = pleaseConnect;
     this.navCtrl = navCtrl;
@@ -58,12 +66,12 @@ export class GoogleMapsProvider {
   }
 
 
-  setCenter(newCenter : latLng) {
+  setCenter(newCenter: latLng) {
     this.changeLocation(newCenter);
     this.getMap().setCenter(newCenter);
   }
 
-  changeLocation(newLocation : latLng) {
+  changeLocation(newLocation: latLng) {
     this.manualLocationChange = true;
     this.locationCircle.setCenter(new google.maps.LatLng(newLocation.lat, newLocation.lng));
     this.location.next(newLocation);
@@ -83,7 +91,7 @@ export class GoogleMapsProvider {
   getMap() {
     return this.map;
   }
-  getMapCenter() : latLng {
+  getMapCenter(): latLng {
     var center = this.getMap().getCenter();
     return { lat: center.lat(), lng: center.lng() };
   }
@@ -94,13 +102,21 @@ export class GoogleMapsProvider {
 
       if (typeof google == "undefined" || typeof google.maps == "undefined") {
 
+        this.toastMes("no google")
+
+
         this.disableMap();
 
         if (this.connectivityService.isOnline()) {
 
           window['mapInit'] = () => {
 
+            this.toastMes("map init callback")
+
+
             this.initMap().then(() => {
+              this.toastMes("inti map done")
+
               this.enableMap();
               resolve(true);
             });
@@ -110,7 +126,7 @@ export class GoogleMapsProvider {
 
           let script = document.createElement("script");
           script.id = "googleMaps";
-          
+
           if (ENVIRONMENT.googleMapsAPIKey) {
             script.src = 'http://maps.google.com/maps/api/js?key=' + ENVIRONMENT.googleMapsAPIKey + '&callback=mapInit&libraries=places';
           } else {
@@ -149,6 +165,8 @@ export class GoogleMapsProvider {
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       this.map = new google.maps.Map(this.mapElement, mapOptions);
+      this.toastMes("map made")
+      
       resolve(true);
     });
 
@@ -217,6 +235,8 @@ export class GoogleMapsProvider {
   }
 
   enableMap(): void {
+    this.toastMes("enable map" + this.pleaseConnect)
+    
     if (this.pleaseConnect) {
       this.pleaseConnect.style.display = "none";
     }
