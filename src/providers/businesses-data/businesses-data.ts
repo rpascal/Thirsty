@@ -6,7 +6,7 @@ import 'rxjs/add/observable/combineLatest';
 
 import 'rxjs/add/observable/merge';
 
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { BusinessModel } from '../../models/businessModel'
